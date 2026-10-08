@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sabarish.P | IT Student & Developer</title>
+
+  <meta name="description"
+        content="Sabarish.P — First Year IT Engineering Student, aspiring software developer and technology enthusiast.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #070b17;
+      --card: rgba(16, 24, 45, 0.72);
+      --card2: #10182b;
+      --text: #f5f7ff;
+      --muted: #9ca8c7;
+      --primary: #7c5cff;
+      --secondary: #22d3ee;
+      --border: rgba(255,255,255,0.09);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(124,92,255,.18), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(34,211,238,.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(15px);
+      background: rgba(7,11,23,.75);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      max-width: 1100px;
+      margin: auto;
+      padding: 150px 25px 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(124,92,255,.4);
+      background: rgba(124,92,255,.1);
+      border-radius: 30px;
+      color: #c8beff;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 80px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      color: #dce3f7;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      border: 1px solid var(--border);
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), #5b8cff);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* GENERAL */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title small {
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-top: 8px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      backdrop-filter: blur(15px);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .info {
+      margin-top: 20px;
+    }
+
+    .info div {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info span:first-child {
+      color: var(--muted);
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      margin-bottom: 15px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+    }
+
+    .skill-header span:last-child {
+      color: var(--secondary);
+    }
+
+    .bar {
+      height: 8px;
+      background: #1b243b;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-number {
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    .project h3 {
+      margin: 12px 0;
+      font-size: 22px;
+    }
+
+    .project p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 6px;
+      background: rgba(124,92,255,.12);
+      color: #cfc7ff;
+      font-size: 11px;
+    }
+
+    /* EDUCATION */
+
+    .timeline {
+      border-left: 2px solid var(--primary);
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      background: var(--secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--secondary);
+    }
+
+    .timeline-item h3 {
+      font-size: 21px;
+    }
+
+    .timeline-item small {
+      color: var(--secondary);
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    /* INTERESTS */
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .interest {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .interest-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      padding-bottom: 100px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 15px auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .interest-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="nav-container">
+
+    <div class="logo">
+      Sabarish<span>.P</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      AVAILABLE FOR LEARNING • INTERNSHIPS • OPPORTUNITIES
+    </div>
+
+    <h1>
+      Hi, I'm <span>Sabarish.P</span>
+    </h1>
+
+    <h2>
+      First Year IT Engineering Student
+    </h2>
+
+    <p>
+      I am an aspiring software developer and technology enthusiast
+      interested in web development, AI, programming, cybersecurity
+      and building practical digital solutions.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#projects" class="btn btn-primary">
+        View My Projects
+      </a>
+
+      <a href="#contact" class="btn btn-secondary">
+        Contact Me
+      </a>
+
+      <!-- Replace with your actual PDF -->
+      <a href="resume.pdf" download class="btn btn-secondary">
+        Download Resume
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-title">
+    <small>01 / About Me</small>
+    <h2>Who I Am</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="card">
+
+      <p>
+        I am a first-year Information Technology engineering student
+        who enjoys exploring technology and converting ideas into
+        practical projects.
+      </p>
+
+      <br>
+
+      <p>
+        My current focus is strengthening my programming fundamentals
+        while exploring web development, artificial intelligence,
+        cybersecurity and software development.
+      </p>
+
+      <br>
+
+      <p>
+        I believe that the best way to learn technology is to build
+        something with it.
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="info">
+
+        <div>
+          <span>Name</span>
+          <strong>Sabarish.P</strong>
+        </div>
+
+        <div>
+          <span>Education</span>
+          <strong>First Year IT</strong>
+        </div>
+
+        <div>
+          <span>Institute</span>
+          <strong>Nehru Institute of Technology</strong>
+        </div>
+
+        <div>
+          <span>Location</span>
+          <strong>Coimbatore, Tamil Nadu</strong>
+        </div>
+
+        <div>
+          <span>Career Goal</span>
+          <strong>Software Developer</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+  <div class="section-title">
+    <small>02 / Skills</small>
+    <h2>Technical Skills</h2>
+  </div>
+
+  <div class="skills">
+
+    <div class="card">
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>Python</span>
+          <span>Learning</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:55%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>HTML & CSS</span>
+          <span>Learning</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:70%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>JavaScript</span>
+          <span>Learning</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:45%"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>Git & GitHub</span>
+          <span>Learning</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:55%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>Web Development</span>
+          <span>Learning</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:60%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-header">
+          <span>Problem Solving</span>
+          <span>Developing</span>
+        </div>
+
+        <div class="bar">
+          <div class="fill" style="width:65%"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <div class="section-title">
+    <small>03 / Projects</small>
+    <h2>Things I've Built</h2>
+  </div>
+
+  <div class="projects">
+
+    <!-- PROJECT 1 -->
+
+    <div class="card project">
+
+      <span class="project-number">PROJECT 01</span>
+
+      <h3>CodeQuest AI</h3>
+
+      <p>
+        A gamified computer-science learning platform designed to
+        guide beginners from programming fundamentals toward
+        job-ready development skills.
+      </p>
+
+      <div class="tags">
+        <span class="tag">AI</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Gamification</span>
+      </div>
+
+    </div>
+
+
+    <!-- PROJECT 2 -->
+
+    <div class="card project">
+
+      <span class="project-number">PROJECT 02</span>
+
+      <h3>The Harbour</h3>
+
+      <p>
+        A cinematic digital crime-thriller web novel created as an
+        interactive web experience using web technologies.
+      </p>
+
+      <div class="tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+    </div>
+
+
+    <!-- PROJECT 3 -->
+
+    <div class="card project">
+
+      <span class="project-number">PROJECT 03</span>
+
+      <h3>Smart Sustainable City</h3>
+
+      <p>
+        A student-focused SDG 11 concept for reporting environmental
+        problems, identifying waste or unclean areas and connecting
+        students with smart city improvement ideas.
+      </p>
+
+      <div class="tags">
+        <span class="tag">SDG 11</span>
+        <span class="tag">AI</span>
+        <span class="tag">Environment</span>
+        <span class="tag">Problem Solving</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+  <div class="section-title">
+    <small>04 / Education</small>
+    <h2>My Journey</h2>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+
+      <small>2026 — PRESENT</small>
+
+      <h3>
+        Bachelor of Engineering — Information Technology
+      </h3>
+
+      <p>
+        Nehru Institute of Technology, Coimbatore
+      </p>
+
+      <p>
+        Currently developing fundamentals in programming,
+        engineering concepts and computer science.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item">
+
+      <small>COMPLETED</small>
+
+      <h3>
+        Higher Secondary Education
+      </h3>
+
+      <p>
+        Completed 12th Standard and started my engineering journey
+        in Information Technology.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INTERESTS -->
+
+<section>
+
+  <div class="section-title">
+    <small>05 / Interests</small>
+    <h2>What I Love Exploring</h2>
+  </div>
+
+  <div class="interest-grid">
+
+    <div class="card interest">
+      <div class="interest-icon">💻</div>
+      <strong>Software</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🤖</div>
+      <strong>Artificial Intelligence</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🌐</div>
+      <strong>Web Development</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🔐</div>
+      <strong>Cybersecurity</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">📚</div>
+      <strong>Learning</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🎨</div>
+      <strong>Creative Design</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🚀</div>
+      <strong>Innovation</strong>
+    </div>
+
+    <div class="card interest">
+      <div class="interest-icon">🧩</div>
+      <strong>Problem Solving</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+  <div class="section-title">
+
+    <small>06 / Contact</small>
+
+    <h2>Let's Connect</h2>
+
+  </div>
+
+  <p>
+    I am interested in learning opportunities, internships,
+    collaborations and projects where I can improve my skills
+    and contribute to meaningful work.
+  </p>
+
+  <div class="contact-links">
+
+    <!-- Replace these -->
+
+    <a href="mailto:YOUR_EMAIL@gmail.com"
+       class="btn btn-primary">
+      📧 Email Me
+    </a>
+
+    <a href="https://github.com/YOUR_USERNAME"
+       target="_blank"
+       class="btn btn-secondary">
+      GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/YOUR_USERNAME/"
+       target="_blank"
+       class="btn btn-secondary">
+      LinkedIn
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  © 2026 Sabarish.P • Information Technology Student
+
+</footer>
+
+
+<script>
+
+  // Small scroll reveal effect
+
+  const cards = document.querySelectorAll(
+    ".card, .timeline-item"
+  );
+
+  const observer = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+
+  cards.forEach(card => {
+
+    card.style.opacity = "0";
+    card.style.transform = "translateY(20px)";
+    card.style.transition = "opacity .6s ease, transform .6s ease";
+
+    observer.observe(card);
+
+  });
+
+</script>
+
+</body>
+</html>
